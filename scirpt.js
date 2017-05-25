@@ -23,17 +23,6 @@ var winningCombos = [
 	['A3','B2','C1']
 ]
 
-var compWinningCombos = [
-	['A1','B1','C1'],
-	['A2','B2','C2'],
-	['A3','B3','C3'],
-	['A1','A2','A3'],
-	['B1','B2','B3'],
-	['C1','C2','C3'],
-	['A1','B2','C3'],
-	['A3','B2','C1']
-]
-
 var gameOverBool = false;
 
 var squares = document.getElementsByClassName("square");
@@ -56,7 +45,6 @@ function markSquare(currentSquare){
 		var squareResult = ""
 		checkWin(player1Squares,1);
 		compFindWinningSquare(player1Squares, compSquares);
-		console.log(compWinningCombos)
 		if (onePlayerGame){
 			computerMove();
 			checkWin(compSquares, "computer")
@@ -75,7 +63,6 @@ function markSquare(currentSquare){
 function computerMove(){
 	// find a random square
 	var randSquare = squares[Math.floor(Math.random() * 9)];
-	console.log(randSquare)
 	var compsTurn = true
 	while(compsTurn){
 		if (takenSquares.length == squares.length){
@@ -94,17 +81,9 @@ function computerMove(){
 	// if its not keep looking
 }
 
-// function compFindWinningSquare(humanPlayersSquares, computerSquares){
-// 	for (let i = 0; i < compWinningCombos.length; i++){
-// 		for (let j = 0; j < compWinningCombos[i].length; j++){
-// 			for (let l = 0; l < humanPlayersSquares.length; l++){
-// 				if (humanPlayersSquares[l].id == compWinningCombos[i][j]){
-// 					compWinningCombos.pop(i)
-// 				}
-// 			}
-// 		}
-// 	}
-// }
+function compFindWinningSquare(humanPlayersSquares, computerSquares){
+	var combo = []
+}
 
 function checkWin(currentPlayersSquares, whoJustWent){
 	// outter loop = winning combos
